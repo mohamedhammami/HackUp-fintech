@@ -1,0 +1,52 @@
+<div class="row">
+        <div class="col-lg-12">
+                <form [formGroup]="contactForm">
+                        <div class="panel-heading">
+                                <h2 class="hh">Demander un Crédit</h2>
+                                <br>
+                              </div>                        <br>
+                        <br>
+                        <div class="">
+                                <i class="fa fa-money" aria-hidden="true"> Montant Demandé (en dinars)</i>
+                                <br>
+                                <input formControlName="montant" name="montant"
+                                        class="" placeholder="Montant Demandé"
+                                        name="Montant" class="col-lg-5" required>
+
+                                <div *ngIf="montant.invalid"></div>
+                                <br />
+                                <br />
+                                <i class="fa fa-calendar" aria-hidden="true"> Durée de remboursement</i>
+                                <br>
+                                <br>
+                                <input formControlName="duree" name="duree" type="range" min="3 mois" max="36 mois"
+                                        value="18.5 mois" step="1 mois" class="slider" id="myRange" required>
+                                <div *ngIf="duree.invalid"></div>
+                                <br />
+                                <br />
+                                <label for="country">Type Crédit</label>
+                                <br>
+                                <div class="panel panel-primary">
+                                        <table id="table" class="table table-hover table-mc-light-blue">
+                                                <thead>
+                                                        <tr>
+                                                                <th>Montant du Crédit</th>
+                                                                <th>Durée du Crédit</th>
+                                                                <th>Taux Nominal</th>
+                                                                <th>Mensualités</th>
+                                                        </tr>
+                                                </thead>
+                                                <td data-title="Montant">{{montant.value}}</td>
+                                                <td data-title="duree">{{duree.value}}</td>
+                                                <td data-title="Taux Nominal">9.87%</td>
+                                                <td data-title="Mensualité">{{mensualite(montant.value,duree.value)}}
+                                                </td>
+                                        </table>
+
+                                </div>
+
+
+                        </div>
+                </form>
+        </div>
+</div>

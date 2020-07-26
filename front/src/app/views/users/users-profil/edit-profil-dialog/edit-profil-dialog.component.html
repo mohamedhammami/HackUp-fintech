@@ -1,0 +1,40 @@
+<mat-dialog-content style="text-align: -webkit-center;">
+    <div>
+        <div>
+            <mat-form-field class="form-group padding-10" style="display: grid;">
+                <label class="control-label "  style="    font-weight: bold;     font-size: 19px;     color: #be4be2;"> Nom </label>
+                <input style="padding-top:10px" matInput #nom maxlength="256" class="form-control" [(ngModel)]="detailProfil.nom">
+                <mat-hint align="start"><strong>Nom doit être non vide</strong></mat-hint>
+                <mat-hint align="end">{{nom.value.length}} / 256</mat-hint>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="form-group padding-10" style="display: grid;">
+                <label class="control-label "  style="    font-weight: bold;     font-size: 19px;     color: #be4be2;"> Prenom </label>
+                <input style="padding-top:10px" matInput #prenom maxlength="256" class="form-control" [(ngModel)]="detailProfil.prenom">
+                <mat-hint align="start"><strong>Prenom doit être non vide</strong></mat-hint>
+                <mat-hint align="end">{{prenom.value.length}} / 256</mat-hint>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="form-group padding-10" style="display: grid;">
+                <label class="control-label "  style="    font-weight: bold;     font-size: 19px;     color: #be4be2;"> Email </label>
+                <input style="padding-top:10px" disabled="disabled" matInput #email maxlength="256" class="form-control" [(ngModel)]="detailProfil.email">
+                <mat-hint align="start"><strong>Don't disclose personal info</strong></mat-hint>
+                <mat-hint align="end">{{email.value.length}} / 256</mat-hint>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="form-group padding-10" style="display: grid;">
+                <label class="control-label "  style="    font-weight: bold;     font-size: 19px;     color: #be4be2;"> Date De Naissance </label>
+                <input style="padding-top:10px" matInput #date maxlength="256" type="date" class="form-control" [(ngModel)]="detailProfil.birth_date">
+                <mat-hint align="start"><strong>Don't disclose personal info</strong></mat-hint>
+                <mat-hint align="end">{{date.value.length}} / 256</mat-hint>
+            </mat-form-field>
+        </div>
+    </div>
+    <button class="btn btn-primary" style="margin-top:30px" (click)="onSaveEditProfil()" mat-button [mat-dialog-close]="true" cdkFocusInitial>Modifier</button>
+    <button class="btn btn-danger" mat-button mat-dialog-close>Annuler</button>
+</mat-dialog-content>
+<mat-dialog-actions>
+</mat-dialog-actions>

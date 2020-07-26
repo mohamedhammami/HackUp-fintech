@@ -1,0 +1,62 @@
+<mat-card class="p-2 main-detail-product" *ngIf="electoral">
+  <div class="product-detail" fxLayout="row wrap">
+    <div class="column m-gap p-gap product-img" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50"
+      fxFlex.xl="50">
+      <div class="img-thumbnail"><img class="left"
+          [src]="electoral.image ? electoral.image : 'assets/images/nike.jpg'" /></div>
+    </div>
+    <div class="column m-gap p-gap product-info" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50"
+      fxFlex.xl="50">
+      <div class="">
+        <h1>{{electoral.name}} </h1>
+        <div class="price">
+          <h4><span>Location : {{electoral.location}}</span></h4>
+          <h4><span>Score : {{score}}</span></h4>
+        </div>
+        <div class="separator"></div>
+        <p>
+          {{electoral.description}}
+        </p>
+      </div>
+      <ul class="share-with">
+        <li><i class="fa fa-eye fa-2x"></i></li>
+        <li><i class="fa fa-heart-o fa-2x"></i></li>
+        <li><i class="fa fa-envelope-o fa-2x"></i></li>
+        <li><i class="fa fa-share-alt fa-2x"></i></li>
+      </ul>
+    </div>
+  </div>
+  <mat-card>
+    <mat-card-title>
+      <h5 class="mt-0">Candidates</h5>
+    </mat-card-title>
+    <hr>
+    <div class="mb-2"></div>
+    <div class="row" fxLayout="row wrap">
+      <div class="example-2 card mat-pad mb-1" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="50" fxFlex.lg="33.33"
+        fxFlex.xl="33.33" *ngFor="let candidate of electoral.candidates">
+        <div class="wrapper" id="candidate-bg-{{candidate.id}}">
+          <div class="header">
+            <div class="date">
+              <span class="day"> {{candidate.createdAt | date: 'dd'}} </span>
+              <span class="month">{{candidate.createdAt | date: 'MMMM'}} </span>
+              <span class="year">{{candidate.createdAt | date: 'yyyy'}} </span>
+            </div>
+            <div>
+              <img class="candidate-img" src="{{candidate.image}}" alt="">
+              <h5 class="title"> <a [routerLink]="['/candidates/show/'+candidate.id]">{{candidate.email}}</a> </h5>
+              <h4 class="title"><a [routerLink]="['/candidates/show/'+candidate.id]">{{candidate.firstname | titlecase}}
+                  {{candidate.lastname | titlecase}}</a>
+              </h4>
+            </div>
+          </div>
+          <div class="data">
+            <div class="content">
+              <a [routerLink]="['/candidates/show/'+candidate.id]" class="button"> Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</mat-card>

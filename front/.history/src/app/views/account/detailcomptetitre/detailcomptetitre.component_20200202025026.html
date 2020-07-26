@@ -1,0 +1,45 @@
+<mat-card class="p-2 main-detail-product" *ngIf="detaildemande">
+  <div class="product-detail" fxLayout="row wrap">
+    <div class="column m-gap p-gap product-img" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50"
+      fxFlex.xl="50">
+      <div class="img-thumbnail"><img class="left"
+          [src]=" 'assets/images/post1.jpg'" /></div>
+    </div>
+    <div class="column m-gap p-gap product-info" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50"
+      fxFlex.xl="50">
+      <div class="">
+        <h1>Nom d'utilistaeur : {{detaildemande.user1.firstname}} </h1>
+        <br>
+        <div class="price">
+          <h4><span>Rib : {{detaildemande.rib}}</span></h4>
+          <br>
+          <h4><span>Montant : {{detaildemande.montant}}</span></h4>
+          <br>
+          <h4><span><mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="title">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            {{detaildemande.dateouverture}}
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          </span></h4>
+
+        </div>
+        <div class="separator"></div>
+      </div>
+      <br>
+      <br>
+
+      <ul class="share-with">
+        <li><i class="fa fa-eye fa-2x">L'etat de votre demande est:     {{detaildemande.etat}}</i></li>
+      <br>
+      <br>
+       <div class="content">
+          <button    mat-raised-button mat-button-sm
+                  color="warn" class="mr-1 ml-3 mb-1"> <a [routerLink]="['/credit/modierdemande/'+detaildemande.id]">Modifier Ma demande </a></button>
+        </div>
+       
+      </ul>
+    </div>
+  </div>
+  
+</mat-card>

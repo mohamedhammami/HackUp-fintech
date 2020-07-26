@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-card-title>
+    <h5 class="mt-0">Demande Assurance Immobilier</h5>
+  </mat-card-title>
+  <mat-card-content style="min-height: 400px;">
+    <div fxLayout="row">
+      <div fxFlex.gt-md="50">
+        <mat-form-field style="width: 80%">
+          <input [(ngModel)]="Assuranceimmo.adress" matInput placeholder="Adress">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayout="row">
+      <div fxFlex.gt-md="50">
+        <mat-form-field style="width: 80%">
+          <input [(ngModel)]="Assuranceimmo.housevalue" matInput placeholder="Housevalue">
+        </mat-form-field>
+      </div>
+    </div>
+    <div>
+      <button style="float:right;margin-right: 50px;" (click)="onSubmit()"
+        class="mat-flat-button mat-primary">ajouter demande</button>
+    </div>
+  </mat-card-content>
+</mat-card>

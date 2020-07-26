@@ -1,0 +1,117 @@
+<div class="relative">
+    <div class="form-bg">
+        <div fxLayout="row" fxLayoutAlign="center start" class="pt-2">
+            <div fxLayout="column" fxFlex.xl="40" fxFlex.lg="40" fxFlex.md="50" fxFlex.sm="80" fxFlex.xs="90">
+                <mat-card class="login-session">
+
+                    <div class="login-logo text-center">
+                        <img src="assets/images/loginimage.png">
+                        <h5 class="">Entrer vos coordonnées pour l'inscription</h5>
+                    </div>
+                    <div>
+                        <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+                            <div fxLayout="column" fxLayoutAlign="start stretch">
+                                <div fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="space-between center">
+                                    <div fxFlex.gt-sm="49" fxFlex.gt-xs="49" fxFlex="100">
+                                        <mat-form-field style="width: 100%">
+                                            <input matInput placeholder="Firstname"
+                                                [formControl]="form.controls['firstname']">
+                                        </mat-form-field>
+                                        <small class="gene-block"
+                                            *ngIf="form.controls['firstname'].hasError('required') && form.controls['firstname'].touched"
+                                            class="mat-text-warn">First Name required
+                                        </small>
+                                    </div>
+                                    <div fxFlex.gt-sm="49" fxFlex.gt-xs="49" fxFlex="100">
+                                        <mat-form-field style="width: 100%">
+                                            <input matInput placeholder="Lastname"
+                                                [formControl]="form.controls['lastname']">
+                                        </mat-form-field>
+                                        <small class="gene-block"
+                                            *ngIf="form.controls['lastname'].hasError('required') && form.controls['lastname'].touched"
+                                            class="mat-text-warn">You must include a Last name.
+                                        </small>
+                                    </div>
+                                </div>
+
+
+                                <div fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="space-between center">
+                                    <div fxFlex.gt-sm="49" fxFlex.gt-xs="49" fxFlex="100">
+
+                                        <mat-form-field style="width: 100%">
+                                            <input matInput placeholder="Login" [formControl]="form.controls['login']"
+                                                type="text">
+                                        </mat-form-field>
+                                        <small class="gene-block"
+                                            *ngIf="form.controls['login'].hasError('required') && form.controls['login'].touched"
+                                            class="mat-text-warn">You must include a login
+                                        </small>
+                                        <small class="gene-block"
+                                            *ngIf="form.controls['login'].hasError('maxlength') && form.controls['login'].touched"
+                                            class="mat-text-warn">Your login is too long .
+                                        </small>
+                                    </div>
+
+                                    <div fxFlex.gt-sm="49" fxFlex.gt-xs="49" fxFlex="100">
+
+                                        <mat-form-field style="width: 100%">
+                                            <input matInput placeholder="Email" [formControl]="form.controls['email']"
+                                                type="email">
+                                        </mat-form-field>
+                                        <small class="gene-block"
+                                            *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched"
+                                            class="mat-text-warn">You must include en email address.
+                                        </small>
+                                        <small class="gene-block"
+                                            *ngIf="form.controls['email'].errors && !(form.controls['email'].hasError('required')) && form.controls['email'].touched"
+                                            class="mat-text-warn">You must include a valid email address..
+                                        </small>
+                                    </div>
+
+                                </div>
+
+                                <div fxLayout="row" fxLayoutWrap="wrap" fxLayoutAlign="space-between center">
+                                    <div fxFlex.gt-sm="49" fxFlex.gt-xs="49" fxFlex="100">
+
+                                        <mat-form-field style="width: 100%">
+                                            <input matInput placeholder="Mot de passe"
+                                                [formControl]="form.controls['password']" autocomplete="new-password"
+                                                type="password">
+                                        </mat-form-field>
+                                        <small class="gene-block"
+                                            *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched"
+                                            class="mat-text-warn">You must include a paswword
+                                        </small>
+                                    </div>
+
+                                    <div fxFlex.gt-sm="49" fxFlex.gt-xs="49" fxFlex="100">
+
+                                        <mat-form-field style="width: 100%">
+                                            <input matInput placeholder="confirm password" autocomplete="new-password"
+                                                [formControl]="form.controls['confirmPassword']" type="password">
+                                        </mat-form-field>
+                                        <small class="gene-block"
+                                            *ngIf="form.controls['confirmPassword'].hasError('required') && form.controls['confirmPassword'].touched"
+                                            class="mat-text-warn">You must include a Confirm password
+                                        </small>
+                                        <small class="gene-block"
+                                            *ngIf="form.controls['confirmPassword'].errors && (form.controls['confirmPassword'].hasError('required'))"
+                                            class="mat-text-warn">Passwords do not match.
+                                        </small>
+                                    </div>
+
+                                </div>
+                                <p></p>
+                                <button class="mat-green" mat-raised-button>Inscription</button>
+                            </div>
+                            <div>
+                                <p class="mb-0">Already Have account ? <a [routerLink]="['/authentication/login']"
+                                        class="mat-text-primary">Connect now</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

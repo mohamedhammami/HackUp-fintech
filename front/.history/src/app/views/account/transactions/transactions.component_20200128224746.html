@@ -1,0 +1,49 @@
+
+
+
+
+
+
+
+
+
+<mat-card>
+  <mat-card-title>
+    <h5 class="mt-0">Effectuer le virement</h5>
+  </mat-card-title>
+  <mat-card-content style="min-height: 400px;">
+    <div fxLayout="row">
+      <div fxFlex.gt-md="50">
+        <mat-form-field style="width: 80%">
+          <form [formGroup]="contactForm">
+            <div class="container">
+  
+                <i class="fa fa-user-circle" aria-hidden="true"> Saisir votre RIB</i>
+                <br>
+                <input  placeholder="Saisir votre RIB" class="w3-input w3-border w3-round-large" class="col-lg-5"
+                    formControlName="RIB1" name="RIB1" required>
+                <div *ngIf="RIB1.invalid"></div>
+                <br />
+                <br />
+                <i class="fa fa-user-circle" aria-hidden="true"> Saisir le RIB du déstinataire </i>
+                <br>
+                <input placeholder="Saisir le RIB du déstinataire" class="w3-input w3-border w3-round-large"
+                    class="col-lg-5" formControlName="RIB2"  name="RIB2" required>
+                <div *ngIf="RIB2.invalid"></div>
+                <br />
+                <br />
+                <i class="fa fa-euro" aria-hidden="true"> Saisir le Montant à virer</i>
+                <br>
+                <input placeholder="Montant à virer" class="w3-input w3-border w3-round-large" class="col-lg-5"
+                    formControlName="montant" name="montant" required>
+                <div *ngIf="montant.invalid"></div>
+                <br />
+                <br />
+                <button class="btn btn-success" [disabled]="!contactForm.valid" (click)="transferer(RIB1.value,RIB2.value,montant.value)">Transférer</button>
+            </div>
+        </form>
+      </mat-form-field>
+    </div>
+   </div>
+    
+  </mat-card-content>

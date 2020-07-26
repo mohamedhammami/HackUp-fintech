@@ -1,0 +1,57 @@
+<mat-card>
+  <mat-card-title>
+    <h5 class="mt-0">List des Sondage</h5>
+  </mat-card-title>
+  <mat-card-content style="min-height: 400px;">
+    <div fxLayout="row">
+      <div fxFlex.gt-md="50">
+        <mat-form-field style="width: 80%">
+          <input [(ngModel)]="candidate.firstname" matInput placeholder="FirstName">
+        </mat-form-field>
+      </div>
+      <div fxFlex.gt-md="50">
+        <mat-form-field style="width: 80%">
+          <input [(ngModel)]="candidate.lastname" matInput placeholder="LastName">
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex.gt-md="50">
+        <mat-form-field style="width: 80%">
+          <input [(ngModel)]="candidate.email" matInput placeholder="Email">
+        </mat-form-field>
+      </div>
+      <div fxFlex.gt-md="50">
+        <mat-form-field style="width: 80%">
+          <input [(ngModel)]="dateOfBirth" matInput [matDatepicker]="picker" placeholder="Date Of Birth">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex.gt-md="50">
+        <mat-form-field style="width: 80%">
+          <input [(ngModel)]="candidate.facebook" matInput placeholder="Facebook">
+        </mat-form-field>
+      </div>
+      <div fxFlex.gt-md="50">
+        <mat-form-field style="width: 80%">
+          <input [(ngModel)]="candidate.twitter" matInput placeholder="Twitter">
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex.gt-md="50">
+        <input class="mat-button" id="image" type="file" required name="sndImage" (change)="onFileSelected($event)">
+      </div>
+    </div>
+
+    <div>
+      <button style="float:right;margin-right: 50px;" (click)="submitCandidate()"
+        class="mat-flat-button mat-primary">Add
+        Candidate</button>
+    </div>
+
+  </mat-card-content>
+</mat-card>

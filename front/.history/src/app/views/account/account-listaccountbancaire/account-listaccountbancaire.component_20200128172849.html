@@ -1,0 +1,43 @@
+
+
+  <mat-card>
+    <mat-card-title>
+      <h5 class="mt-0">Compte Bancaire</h5>
+    </mat-card-title>
+    <hr>
+    <div class="mb-2"></div>
+    <div fxLayout="row wrap">
+      <ng-container>
+        <div fxFlex.sm="33.33" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33"
+          class="m-gap p-gap">
+          <div class="p-list-main mb-2">
+            <div class="col-md-6">
+              <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>Rib</th>
+                <th>montant</th>
+                <th>typeCompte</th>
+                <th>UserName</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                  
+                    <td>{{accounts.Rib}}</td>
+                    <td>{{accounts.montant}}</td>
+                    <td>{{accounts.typeCompte}}</td>
+                    <td>{{accounts.user.firstname}}</td>
+
+                      </tr>
+              </tbody>
+                </table>
+            
+              </div>
+          </div>
+        </div>
+      </ng-container>
+  
+    </div>
+  </mat-card>

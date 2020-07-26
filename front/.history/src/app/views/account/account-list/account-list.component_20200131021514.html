@@ -1,0 +1,64 @@
+<div fxLayout="row wrap">
+  <div fxFlex.sm="100" fxFlex.xs="100" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33" fxFlex="100"
+     class="m-gap p-gap">
+     <mat-card>
+        <div class="card-wheather grad-blue" >
+           <div class="city">  <a [routerLink]="['/account/listecomptebancaire']">Compte Bancaire</a></div>
+           <div class="weather">
+              <div class="sun d-flex justify-content-between">
+                 <i class="fa fa-users fa-3x align-self-center"></i>
+                 <div class="temp align-self-center"></div>
+              </div>
+           </div>
+        </div>
+     </mat-card>
+  </div>
+  <div fxFlex.sm="100" fxFlex.xs="100" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33" fxFlex="100"
+     class="m-gap p-gap">
+     <mat-card>
+        <div class="card-wheather grad-green">
+           <div class="city">Compte Titre</div>
+           <div class="weather">
+              <div class="sun d-flex justify-content-between">
+                 <i class="fa fa fa-list fa-3x align-self-center"></i>
+                 <div class="temp align-self-center"></div>
+              </div>
+           </div>
+        </div>
+     </mat-card>
+  </div>
+  </div>
+
+
+
+
+
+
+  <div class="row">
+   <div class="col-lg-12">
+           <form [formGroup]="contactForm">
+                   <h3>Simulation Credit Consommation</h3>
+                   <br>
+                   <br>
+                   <div class="container">
+                           <i class="fa fa-money" aria-hidden="true"> Montant Demandé</i>
+                           <br>
+                           <input formControlName="montant" name="montant" type="range" min="1 mD" max="30 mD"
+                                   value="14.5 mD" step="1 mD" class="slider" id="myRange" required>
+                           <div *ngIf="montant.invalid"></div>
+                           <br />
+                           <br />
+                           <i class="fa fa-calendar" aria-hidden="true"> Durée de remboursement</i>
+                           <br>
+                           <br>
+                           <input formControlName="duree" name="duree" type="range" min="3 mois" max="36 mois"
+                                   value="18.5 mois" step="1 mois" class="slider" id="myRange" required>
+                           <div *ngIf="duree.invalid"></div>
+                           <br />
+                           <br />
+                           <button class="btn btn-primary" [disabled]="!contactForm.valid">Lancer la
+                                   Simulation</button>
+                   </div>
+           </form>
+   </div>
+</div>

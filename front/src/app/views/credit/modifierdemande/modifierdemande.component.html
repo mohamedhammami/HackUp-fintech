@@ -1,0 +1,70 @@
+<ng-container *ngIf="detaildemandemodif;else noCandidate">
+
+  <div class="user-profile relative">
+    <div class="profile-cover">
+    </div>
+    <div class="">
+      <div fxLayout="row" fxLayoutWrap="wrap" class="profile-w">
+        <div fxFlex.gt-sm="25" fxFlex.gt-xs="25" fxFlex="20">
+        </div>
+        <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="80" class="user-links">
+          <ul class="profile-menu">
+          </ul>
+        </div>
+        <div fxFlex.gt-sm="25" fxFlex.gt-xs="25" fxFlex="100" class="align-self-center">
+          <button *ngIf="isAdmin" type="button"
+            class="UserActions-editButton edit-button EdgeButton EdgeButton--tertiary"
+            data-scribe-element="profile_edit_button">
+            <span class="button-text" (click)="toggleEdit()">Modifier Demande</span>
+          </button>
+        </div>
+      </div>
+      <div fxLayout="row wrap">
+        <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="relative">
+          
+          <div class="profile-info" style="margin-top : 50px">
+            <ng-container *ngIf="!isEdit;else edit">
+              <span class="user-name"><i class="fa fa-envelope mr-1"></i> Raison est : {{ detaildemandemodif.raison}}</span>
+              
+              <span><i class="fa fa-envelope mr-1"></i> Type de Credit: {{detaildemandemodif.typeCredit}}</span>
+              <span><i class="fa fa-envelope mr-1"></i>Votre Montant Demandé: {{detaildemandemodif.montant}}</span>
+            </ng-container>
+            <ng-template #edit>
+              <div>
+                <i class="fa fa-envelope mr-1"></i>
+                <mat-form-field>
+                  <input matInput type="text" [(ngModel)]="candidateUpdate.raison">
+                </mat-form-field>
+              </div>
+              <div>
+                <i class="fa fa-envelope mr-1"></i>
+                <mat-form-field>
+                  <input matInput type="text" [(ngModel)]="candidateUpdate.typeCredit">
+                </mat-form-field>
+              </div>
+              <div>
+                <i class="fa fa-envelope mr-1"></i>
+                <mat-form-field>
+                  <input matInput type="text" [(ngModel)]="candidateUpdate.montant">
+                </mat-form-field>
+              </div>
+              <button (click)="updateUser()" mat-raised-button mat-button-sm color="primary"
+                class="mr-1 ml-3 mb-1">Modifier</button>
+            </ng-template>
+          </div>
+        </div>
+
+          
+
+           
+            </div>
+          </div>
+        </div>
+
+
+
+</ng-container>
+
+<ng-template #noCandidate>
+  No Candidate
+</ng-template>

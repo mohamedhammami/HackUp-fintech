@@ -1,0 +1,33 @@
+
+
+
+          <mat-table *ngFor="let account of accounts" class="mat-elevation-z8">
+            <!-- Position Column -->
+            <ng-container matColumnDef="RIB">
+              <mat-header-cell *matHeaderCellDef>RIB </mat-header-cell>
+              <mat-cell > {{account.rib}} </mat-cell>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="Montant">
+              <mat-header-cell *matHeaderCellDef> Montant </mat-header-cell>
+              <mat-cell > {{account.montant}} </mat-cell>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="TypeCompte">
+              <mat-header-cell *matHeaderCellDef> TypeCompte </mat-header-cell>
+              <mat-cell > {{account.typeCompte}} </mat-cell>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="UserName">
+              <mat-header-cell *matHeaderCellDef> UserName </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{account.user1.firstname}} </mat-cell>
+            </ng-container>
+          
+          </mat-table>
+
+
+
+         

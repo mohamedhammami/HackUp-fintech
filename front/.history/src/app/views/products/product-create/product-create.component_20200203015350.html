@@ -1,0 +1,49 @@
+<div class="contact---area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <!-- Contact Area -->
+                <div class="contact-form-area contact-page">
+                    <h4 class="mb-50">Send a message</h4>
+<div class="card" *ngIf="generic">
+  <div class="card-body">
+    <input type="text" placeholder="name" [(ngModel)]="product.name">
+    <div *ngFor="let value of product.valueList">
+      <label for=""> {{value.name}} </label>
+      <input *ngIf="value.type == 'string' " [(ngModel)]="value.value" type="text" placeholder="{{value.value}}">
+      <input *ngIf="value.type == 'int' " [(ngModel)]="value.value" type="number" placeholder="{{value.value}}">
+    </div>
+    <button (click)="onSubmit()">Submit</button>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+         
+
+
+
+
+<div class="container">
+    <h4 class="mb-50">Send a message</h4>
+    <div class="card" *ngIf="generic">
+    <form action="action_page.php">
+      <label for="fname">Nom Du produit</label>
+      <input  type="text" id="fname" placeholder="name" [(ngModel)]="product.name">
+      <div *ngFor="let value of product.valueList">
+      <label for="lname">{{value.name}} </label>
+      <input *ngIf="value.type == 'string' " [(ngModel)]="value.value" type="text" placeholder="{{value.value}}">
+      <input *ngIf="value.type == 'int' " [(ngModel)]="value.value" type="number" placeholder="{{value.value}}">
+      </div>
+      <button (click)="onSubmit()" type="submit">Submit</button>  
+    </form>
+  </div>
+  </div>
+  

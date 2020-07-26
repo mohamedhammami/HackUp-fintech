@@ -1,0 +1,22 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Rib</th>
+      <th scope="col">Montant</th>
+      <th scope="col">DateOuverture</th>
+      <th scope="col">Nom D'utilisateur</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let compte of accounts">
+    <tr>
+    <th scope="row">{{compte.rib}}</th>
+      <td>{{compte.montant}}</td>
+      <td>{{compte.dateouverture}}</td>
+      <td>@{{compte.user1.firstname}}</td>
+      <button  mat-raised-button mat-button-sm
+                  color="Gris" class="mr-1 ml-3 mb-1"> <a [routerLink]="['/credit/detail/'+compte.rib]"> <i class="material-icons">details</i>
+                  </a> Detail Compte </button>
+    </tr>
+    
+  </tbody>
+</table>

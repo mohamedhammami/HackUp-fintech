@@ -1,0 +1,102 @@
+<div class="user-profile relative">
+    <div class="profile-cover">
+    </div>
+    <div class="">
+        <div fxLayout="row" fxLayoutWrap="wrap" class="profile-w">
+            <div fxFlex.gt-sm="25" fxFlex.gt-xs="25" fxFlex="20">
+            </div>
+            <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="80" class="user-links">
+                <ul class="profile-menu">
+                    <li><a href="">Mes Sondages<span class="block text-lg-center">{{nbMesSnd}}</span></a></li>
+                    <li><a href="">Mes abonnés<span class="block text-lg-center">15</span></a></li>
+                    <li><a href="">Mes réponses<span class="block text-lg-center">{{nbRepoSnd}}</span></a></li>
+                    <li><a href="">J'aimes<span class="block text-lg-center">7</span></a></li>
+                    <li><a href="">Nombre total Reponces<span class="block text-lg-center">{{nbTotalSndResp}}</span></a></li>
+                </ul>
+            </div>
+            <div fxFlex.gt-sm="25" fxFlex.gt-xs="25" fxFlex="100" class="align-self-center">
+                <button type="button" class="UserActions-editButton edit-button EdgeButton EdgeButton--tertiary"
+                        data-scribe-element="profile_edit_button">
+                    <span class="button-text" (click)="openEditProfilDialog(myprofile.id)">Modifier profile</span>
+                </button>
+            </div>
+        </div>
+        <div fxLayout="row wrap">
+            <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="relative">
+                <div class="profile-avatar">
+                    <img [src]=" imageURL + myprofile.id" width="200" height="200"
+                         alt="user">
+                </div>
+                <div class="profile-info">
+                    <h3 class="profile-name"><i class="fa fa-user"></i><strong> &nbsp; {{myprofile.nom}} {{myprofile.prenom}}</strong></h3>
+                    <span class="user-name"><i class="fa fa-envelope"></i>{{myprofile.email}}</span>
+                    <span class="pro-des"> <i class="fa fa-map-marker"></i>User@Sondage</span>
+                    <span><i class="fa fa-calendar"></i>{{myprofile.birth_date | date: 'd/M/y'}}</span>
+                    <span><i class="fa fa-birthday-cake"></i>{{myprofile.cin}}</span>
+                </div>
+            </div>
+
+            <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" class="mt-1">
+                <div class="profile-content">
+                    <div class="profile-head">
+                        <h4>Historiques</h4>
+                        <hr>
+                    </div>
+                    <div class="profile-cont">
+                        <ul class="pl-0">
+                            <li>
+                                <div fxLayout="row">
+                                    <div fxFlex.xs="15" fxFlex.sm="15" fxFlex.md="15" fxFlex.lg="15" fxFlex.xl="15"><img
+                                            class="profile-thumb" [src]="imageURL + myprofile.id" width="80"
+                                            height="80" alt="user">
+                                    </div>
+                                    <div class="pl-1 pr-1 profile-i" fxFlex.xs="85" fxFlex.sm="85" fxFlex.md="85"
+                                         fxFlex.lg="85" fxFlex.xl="85">
+                                        <div>
+                                            <span class="post-profile-head">{{myprofile.nom}} {{myprofile.prenomnom}}</span>
+                                            <span class="twitter-uname">{{myprofile.email}}</span>
+                                            <span class="time">Sep 3, 2018</span>
+                                            <p>Creation Sondage</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div fxLayout="row">
+                                    <div fxFlex.xs="15" fxFlex.sm="15" fxFlex.md="15" fxFlex.lg="15" fxFlex.xl="15"><img
+                                            class="profile-thumb" [src]=" imageURL + myprofile.id " width="80"
+                                            height="80" alt="user">
+                                    </div>
+                                    <div class="pl-1 pr-1 profile-i" fxFlex.xs="85" fxFlex.sm="85" fxFlex.md="85"
+                                         fxFlex.lg="85" fxFlex.xl="85">
+                                        <div>
+                                            <span class="post-profile-head">{{myprofile.nom}} {{myprofile.prenomnom}}</span>
+                                            <span class="twitter-uname">{{myprofile.email}}</span>
+                                            <span class="time">Sep 3, 2018</span>
+                                            <p>Creation Sondage</p>
+                                        </div>
+                                        <div class="img-wrp" fxLayout="row" fxLayoutWrap="space-around">
+                                            <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100">
+                                                <div class="thumb-border">
+                                                    <img src="../../../assets/images/blog-1.jpg" alt="user">
+                                                </div>
+                                            </div>
+                                            <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100">
+                                                <div class="thumb-border">
+                                                    <img src="../../../assets/images/blog-2.jpg" alt="user">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="align-self-center">
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,39 @@
+
+ <mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrer">
+</mat-form-field>
+
+  <mat-card>
+    <mat-card-title>
+      <h5 class="mt-0">List Account</h5>
+    </mat-card-title>
+    <hr>
+    <div class="col-md-6">
+      <ng2-smart-table>
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>RIB</th>
+                      <th>montant</th>
+                      <th>typeCompte</th>
+                      <th>DateOuverture</th>
+                      <th>Nom Du Client</th>
+
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let account of accounts">
+                    <td>
+                      <button class="btn btn-success" >Supprimer</button>
+                    </td>
+                    <td data-title="RIB">{{account.rib}}</td>
+                    <td data-title="montant">{{account.montant}}</td>
+                    <td data-title="typeCompte">{{account.typeCompte}}</td>
+                    <td data-title="DateOuverture">{{account.dateouverture}}</td>
+                    <td data-title="Nom Du Client">{{account.user1.firstname}}</td>
+
+                  </tbody>
+</ng2-smart-table>          </div>
+          </mat-card>
+
+
+

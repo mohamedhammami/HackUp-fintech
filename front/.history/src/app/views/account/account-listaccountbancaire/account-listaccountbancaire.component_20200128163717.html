@@ -1,0 +1,20 @@
+<div class="col-md-6">
+  <table class="table table-striped">
+  <thead>
+  <tr>
+    <th>montant</th>
+    <th>raison</th>
+    <th>etat</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let product of accounts">
+      
+        <td>{{product.montant}}</td>
+        <td>{{product.typeCompte}}</td>
+        <td>{{product.Rib}}</td>
+          </tr>
+  </tbody>
+    </table>
+
+  </div>

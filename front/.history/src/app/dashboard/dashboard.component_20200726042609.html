@@ -1,0 +1,134 @@
+<div fxLayout="row wrap">
+    <div fxFlex.sm="100" fxFlex.xs="100" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33" fxFlex="100"
+       class="m-gap p-gap">
+       <mat-card>
+          <div class="card-wheather grad-blue">
+             <div class="city">Action</div>
+             <div class="weather">
+                <div class="sun d-flex justify-content-between">
+                   <i class="fa fa-users fa-3x align-self-center"></i>
+                   <div class="temp align-self-center">{{nbCandidates}}</div>
+                </div>
+             </div>
+          </div>
+       </mat-card>
+    </div>
+    <div fxFlex.sm="100" fxFlex.xs="100" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33" fxFlex="100"
+       class="m-gap p-gap">
+       <mat-card>
+          <div class="card-wheather grad-green">
+             <div class="city">Nombre des comptes</div>
+             <div class="weather">
+                <div class="sun d-flex justify-content-between">
+                   <i class="fa fa fa-list fa-3x align-self-center"></i>
+                   <div class="temp align-self-center">{{nbElectorals}}</div>
+                </div>
+             </div>
+          </div>
+       </mat-card>
+    </div>
+    <div  fxFlex.sm="100" fxFlex.xs="100" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33"
+       fxFlex="100" class="m-gap p-gap">
+       <mat-card>
+          <div class="card-wheather grad-red">
+             <div class="city">Users</div>
+             <div class="weather">
+                <div class="sun d-flex justify-content-between">
+                   <i class="fa fa fa-user fa-3x align-self-center"></i>
+                   <div class="temp align-self-center">{{nbUsers}}</div>
+                </div>
+             </div>
+          </div>
+       </mat-card>
+    </div>
+ </div>
+ 
+ 
+ <div fxLayout="row wrap">
+    <div fxFlex.gt-sm="50%" fxFlex.gt-xs="50" fxFlex="100" class="m-gap p-gap">
+       <mat-card>
+          <mat-card-title fxLayout="row" fxLayoutAlign="start center">
+             Top Candidates | Score &nbsp;
+             <span fxFlex></span>
+             <button mat-icon-button mat-button-sm [mat-menu-trigger-for]="card2" aria-label="Open card menu">
+                <mat-icon>more_vert</mat-icon>
+             </button>
+          </mat-card-title>
+          <mat-menu #card2="matMenu" x-position="before">
+             <button mat-menu-item>
+                <mat-icon>settings</mat-icon>
+                Settings
+             </button>
+             <button mat-menu-item>
+                <mat-icon>more</mat-icon>
+                View More
+             </button>
+             <button mat-menu-item>
+                <mat-icon>notifications_off</mat-icon>
+                Disable notifications
+             </button>
+             <button mat-menu-item>
+                <mat-icon>exit_to_app</mat-icon>
+                Remove Panel
+             </button>
+          </mat-menu>
+          <hr>
+          <mat-card-content *ngIf="candStat">
+             <canvas height="200" baseChart class="chart" [datasets]="ComboChartData" [labels]="comboChartLabels"
+                [options]="ComboChartOptions" [colors]="chartColors" [legend]="comboChartLegend"
+                [chartType]="barChartType" (select)="onClickList($event)"></canvas>
+          </mat-card-content>
+       </mat-card>
+    </div>
+    <div fxFlex.gt-sm="50%" fxFlex.gt-xs="50" fxFlex="100" class="m-gap p-gap">
+       <mat-card>
+          <mat-card-title fxLayout="row" fxLayoutAlign="start center">
+             Top Candidates | Rating &nbsp;
+             <span fxFlex></span>
+             <button mat-icon-button mat-button-sm [mat-menu-trigger-for]="card2" aria-label="Open card menu">
+                <mat-icon>more_vert</mat-icon>
+             </button>
+          </mat-card-title>
+          <mat-menu #card2="matMenu" x-position="before">
+             <button mat-menu-item>
+                <mat-icon>settings</mat-icon>
+                Settings
+             </button>
+             <button mat-menu-item>
+                <mat-icon>more</mat-icon>
+                View More
+             </button>
+             <button mat-menu-item>
+                <mat-icon>notifications_off</mat-icon>
+                Disable notifications
+             </button>
+             <button mat-menu-item>
+                <mat-icon>exit_to_app</mat-icon>
+                Remove Panel
+             </button>
+          </mat-menu>
+          <hr>
+          <mat-card-content *ngIf="candStat">
+             <canvas height="200" baseChart class="chart" [datasets]="ComboChartData2" [labels]="comboChartLabels"
+                [options]="ComboChartOptions" [colors]="chartColors" [legend]="comboChartLegend"
+                [chartType]="barChartType" (select)="onClickList($event)"></canvas>
+          </mat-card-content>
+       </mat-card>
+    </div>
+    <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+       <mat-card>
+          <mat-card-title>Electoral List Score</mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+          <hr>
+          <mat-card-content>
+             <div class="w-100 h-300px">
+                <ngx-charts-bar-horizontal [scheme]="colorScheme" [results]="single" [gradient]="gradient"
+                   [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
+                   [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="yAxisLabel" [yAxisLabel]="xAxisLabel"
+                   (select)="onClickList($event)">
+                </ngx-charts-bar-horizontal>
+             </div>
+          </mat-card-content>
+       </mat-card>
+    </div>
+ </div>

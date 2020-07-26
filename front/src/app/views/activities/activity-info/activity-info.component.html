@@ -1,0 +1,53 @@
+<mat-card class="p-2 main-detail-product" *ngIf="activity">
+  <div class="product-detail" fxLayout="row wrap">
+    <div class="column m-gap p-gap product-img" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50"
+      fxFlex.xl="50">
+      <div class="img-thumbnail">
+        <img class="left"
+          [src]="activity.medias.length> 0 && activity.medias[0].url ? activity.medias[0].url : 'assets/images/default-image.jpg'" />
+      </div>
+    </div>
+    <div class="column m-gap p-gap product-info" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50"
+      fxFlex.xl="50">
+      <div class="">
+        <h1>{{activity.name}}</h1>
+        <div class="price">
+          <h2><span> {{activity.type}}</span></h2>
+          <h5><span> {{activity.startDate | date : 'MMMM, dd yyyy' }}</span></h5>
+        </div>
+        <div class="separator"></div>
+        <p>
+          {{activity.description}}
+        </p>
+      </div>
+      <ul class="share-with">
+        <li><i class="fa fa-eye fa-2x"></i></li>
+        <li><i class="fa fa-heart-o fa-2x"></i></li>
+        <li><i class="fa fa-envelope-o fa-2x"></i></li>
+        <li><i class="fa fa-share-alt fa-2x"></i></li>
+      </ul>
+    </div>
+  </div>
+  <mat-card>
+    <mat-card-title>
+      <h5 class="mt-0">Gallery Image</h5>
+      <button mat-raised-button color="primary" class="mr-1">Add Image</button>
+    </mat-card-title>
+    <hr>
+    <div class="mb-2"></div>
+    <div fxLayout="row wrap">
+      <div fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33" *ngFor="let media of activity.medias"
+        class="mat-pad mb-1">
+        <div class="hover-parent">
+          <img [src]="media.url" alt="Card image cap" />
+          <div class="hover-overlay">
+            <div class="hover-overlay-content">
+              <h3 mat-line>{{media.name}}</h3>
+              <span mat-line>Gallery image</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</mat-card>

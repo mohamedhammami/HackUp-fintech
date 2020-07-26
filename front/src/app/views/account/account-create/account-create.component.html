@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-title>
+    <h5 class="mt-0"> Ouvrir un compte</h5>
+  </mat-card-title>
+  <mat-card-content style="min-height: 400px;">
+    <div fxLayout="row">
+      <div fxFlex.gt-md="50">
+        <mat-form-field style="width: 80%">
+          <input [(ngModel)]="account.montant" matInput placeholder="Montant">
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxFlex.gt-md="50">
+      <mat-form-field style="width: 80%">
+        <input [(ngModel)]="dateouverture" matInput [matDatepicker]="picker" placeholder="Date Ouvetrute">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row">
+      <div fxFlex.gt-md="50">
+        <mat-form-field style="width: 80%">
+          <input [(ngModel)]="account.ferme" matInput placeholder="Ferme">
+        </mat-form-field>
+      </div>
+    </div>
+    <mat-form-field>
+      <mat-label>Type du compte</mat-label>
+      <mat-select [(ngModel)]="account.typeCompte">
+        <mat-option *ngFor="let food of typecompte" [value]="food.value">
+          {{food.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div>
+      <button style="float:right;margin-right: 50px;" (click)="onSubmit()"
+        class="mat-flat-button mat-primary">Ajouter Compte</button>
+    </div>
+  </mat-card-content>
+</mat-card>

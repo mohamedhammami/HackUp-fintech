@@ -1,0 +1,61 @@
+<mat-card>
+  <mat-card-title>
+    <h5 class="mt-0">Activity List</h5>
+  </mat-card-title>
+  <hr>
+  <div class="mb-2"></div>
+  <div fxLayout="row wrap">
+    <ng-container *ngFor="let activity of activities">
+      <div fxFlex.sm="33.33" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33"
+        class="m-gap p-gap">
+        <div class="p-list-main mb-2">
+          <div class="p-list">
+            <div class="top">
+              <ng-container>
+                <img
+                  [src]="activity.medias.length> 0 && activity.medias[0].url ? activity.medias[0].url : 'assets/images/default-image.jpg'">
+              </ng-container>
+
+            </div>
+            <div class="bottom">
+              <div class="left">
+                <div class="details">
+                  <h3>
+                    <a [routerLink]="['/activities/show/'+activity.id]">
+                      {{activity.name}}
+                    </a>
+                  </h3>
+                  <p>{{activity.type}}</p>
+                </div>
+                <div class="buy">
+                  <a [routerLink]="['/activities/show/'+activity.id]">
+                    <i class="material-icons">details</i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="inside">
+              <a [routerLink]="['/activities/show/'+activity.id]">
+                <div class="icon"><i class="material-icons">info_outline</i></div>
+              </a>
+              <div class="contents">
+                <table>
+                  <tr>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                  </tr>
+                  <tr>
+                    <td>{{activity.startDate | date : 'MMMM, dd yyyy' }}</td>
+                    <td>{{activity.endDate | date : 'MMMM, dd yyyy' }}</td>
+                  </tr>
+                </table>
+                <p> {{activity.description | slice : 0:80 }}... </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+  </div>
+</mat-card>

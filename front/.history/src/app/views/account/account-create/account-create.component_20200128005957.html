@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-title>
+    <h5 class="mt-0">Create Account</h5>
+  </mat-card-title>
+  <mat-card-content style="min-height: 400px;">
+    <div fxLayout="row">
+      <div fxFlex.gt-md="50">
+        <mat-form-field style="width: 80%">
+          <input [(ngModel)]="account.montant" matInput placeholder="Montant">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayout="row">
+      <div fxFlex.gt-md="50">
+        <mat-form-field style="width: 80%">
+          <input [(ngModel)]="account.ferme" matInput placeholder="Ferme">
+        </mat-form-field>
+      </div>
+    </div>
+
+       
+    <div class="example-config">
+      <input id="ac" type="checkbox" [(ngModel)]="allowCustom">
+      <label for="ac">Allow custom values</label>
+    </div>
+    <div class="example-wrapper">
+    <p>Favorite sport:</p>
+     <mat-checkbox [data]="listItems" [allowCustom]="allowCustom">
+    </mat-checkbox>
+    </div>
+
+    
+    <div>
+      <button style="float:right;margin-right: 50px;" (click)="onSubmit()"
+        class="mat-flat-button mat-primary">Add Account</button>
+    </div>
+  </mat-card-content>
+</mat-card>

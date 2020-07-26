@@ -1,0 +1,22 @@
+
+  
+          <div class="col-md-6">
+            <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Rib</th>
+              <th>montant</th>
+              <th>dateouverture</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of allRequest">
+                
+                  <td>{{product.Rib}}</td>
+                  <td>{{product.montant}}</td>
+                  <td>{{product.dateouverture}}</td>
+                    </tr>
+            </tbody>
+              </table>
+          
+            </div>

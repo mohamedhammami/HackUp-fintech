@@ -1,0 +1,72 @@
+
+ <mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrer">
+</mat-form-field>
+
+  <mat-card>
+    <mat-card-title>
+      <h5 class="mt-0">List Account</h5>
+    </mat-card-title>
+    <hr>
+    <div class="col-md-6">
+      <table class="table table-striped table-responsive-md btn-table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>RIB</th>
+                      <th>montant</th>
+                      <th>typeCompte</th>
+                      <th>DateOuverture</th>
+                      <th>Nom Du Client</th>
+
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let account of accounts">
+                    <td>
+                      <button class="btn btn-success" >Supprimer</button>
+                    </td>
+                    <td data-title="RIB">{{account.rib}}</td>
+                    <td data-title="montant">{{account.montant}}</td>
+                    <td data-title="typeCompte">{{account.typeCompte}}</td>
+                    <td data-title="DateOuverture">{{account.dateouverture}}</td>
+                    <td data-title="Nom Du Client">{{account.user1.firstname}}</td>
+
+                  </tbody>
+                </table>
+          </div>
+          </mat-card>
+
+
+
+
+          <mat-table  class="mat-elevation-z8">
+            <tbody *ngFor="let account of accounts">
+            <!-- Position Column -->
+            <ng-container matColumnDef="RIB">
+              <mat-header-cell *matHeaderCellDef>RIB </mat-header-cell>
+              <mat-cell > {{account.rib}} </mat-cell>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="Montant">
+              <mat-header-cell *matHeaderCellDef> Montant </mat-header-cell>
+              <mat-cell > {{account.montant}} </mat-cell>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="TypeCompte">
+              <mat-header-cell *matHeaderCellDef> TypeCompte </mat-header-cell>
+              <mat-cell > {{account.typeCompte}} </mat-cell>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="UserName">
+              <mat-header-cell *matHeaderCellDef> UserName </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{account.user1.firstname}} </mat-cell>
+            </ng-container>
+          </tbody>
+          </mat-table>
+
+
+
+         

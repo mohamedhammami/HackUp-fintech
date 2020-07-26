@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-title>
+    <h5 class="mt-0">Ajouter un demande </h5>
+  </mat-card-title>
+  <mat-card-content style="min-height: 400px;">
+    <div fxLayout="row">
+      <div fxFlex.gt-md="50">
+        <mat-form-field style="width: 80%">
+          <input [(ngModel)]="demande.montant" matInput placeholder="Montant">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayout="row">
+      <div fxFlex.gt-md="50">
+        <mat-form-field style="width: 80%">
+          <input [(ngModel)]="demande.raison" matInput placeholder="Description">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayout="row">
+      <div fxFlex.gt-md="50">
+        <mat-form-field>
+          <mat-label>Type du compte</mat-label>
+          <mat-select [(ngModel)]="demande.typeCredit">
+            <mat-option *ngFor="let food of typecompte" [value]="food.value">
+              {{food.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div>
+      <button style="float:right;margin-right: 50px;" (click)="onSubmit()"
+        class="mat-flat-button mat-primary">Add Electoral</button>
+    </div>
+  </mat-card-content>
+</mat-card>

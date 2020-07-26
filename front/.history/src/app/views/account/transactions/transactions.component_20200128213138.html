@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-lg-12">
+      <form [formGroup]="contactForm">
+          <div class="container">
+              <h3>Transfert Bancaire</h3>
+
+              <i class="fa fa-user-circle" aria-hidden="true"> Saisir votre RIB</i>
+              <br>
+              <input  placeholder="Saisir votre RIB" class="w3-input w3-border w3-round-large" class="col-lg-5"
+                  formControlName="RIB1" name="RIB1" required>
+              <div *ngIf="RIB1.invalid"></div>
+              <br />
+              <br />
+              <i class="fa fa-user-circle" aria-hidden="true"> Saisir le RIB du déstinataire </i>
+              <br>
+              <input placeholder="Saisir le RIB du déstinataire" class="w3-input w3-border w3-round-large"
+                  class="col-lg-5" formControlName="RIB2"  name="RIB2" required>
+              <div *ngIf="RIB2.invalid"></div>
+              <br />
+              <br />
+              <i class="fa fa-euro" aria-hidden="true"> Saisir le Montant à virer</i>
+              <br>
+              <input placeholder="Montant à virer" class="w3-input w3-border w3-round-large" class="col-lg-5"
+                  formControlName="montant" name="montant" required>
+              <div *ngIf="montant.invalid"></div>
+              <br />
+              <br />
+              <button class="btn btn-success" [disabled]="!contactForm.valid" (click)="transferer(RIB1.value,RIB2.value,montant.value)">Transférer</button>
+          </div>
+      </form>
+  </div>
+</div>

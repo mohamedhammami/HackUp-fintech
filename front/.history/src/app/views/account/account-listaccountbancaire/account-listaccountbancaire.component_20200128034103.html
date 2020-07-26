@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-title>
+    <h5 class="mt-0">Candidate List</h5>
+  </mat-card-title>
+  <hr>
+  <div class="mb-2"></div>
+  <div class="row" fxLayout="row wrap">
+    <div class="example-2 card mat-pad mb-1" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="50" fxFlex.lg="33.33"
+      fxFlex.xl="33.33" *ngFor="let candidate of comptebancaire">
+      <div class="wrapper" id="candidate-bg-{{candidate.Rib}}">
+        <div class="header">
+          <div>
+            <div class="wrapper" id="candidate-bg-{{candidate.montant}}">
+            <div class="wrapper" id="candidate-bg-{{candidate.dateouverture}}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

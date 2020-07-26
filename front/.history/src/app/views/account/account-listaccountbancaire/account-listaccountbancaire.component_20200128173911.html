@@ -1,0 +1,36 @@
+
+
+  <mat-card>
+    <mat-card-title>
+      <h5 class="mt-0">Compte Bancaire</h5>
+    </mat-card-title>
+    <hr>
+
+    <div>
+      <h1>Liste des Comptes Bancaires</h1>
+      <div class="table-responsive-vertical shadow-z-1">
+        <table id="table" class="table table-hover table-mc-light-blue">
+          <thead>
+            <tr>
+              <th></th>
+              <th>RIB</th>
+              <th>montant</th>
+              <th>typeCompte</th>
+              <th>UserName</th>
+              <th>DateOuverture</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let compte of comptes">
+            <td>
+              <button class="btn btn-success" (click)="">Supprimer</button>
+            </td>
+            <td data-title="RIB">{{accounts.rib}}</td>
+            <td data-title="montant">{{accounts.montant}}</td>
+            <td data-title="typeCompte">{{accounts.typeCompte}}</td>
+            <td data-title="UserName">{{accounts.user.firstname}}</td>
+            <td data-title="DateOuverture">{{accounts.dateouverture}}</td>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </mat-card>

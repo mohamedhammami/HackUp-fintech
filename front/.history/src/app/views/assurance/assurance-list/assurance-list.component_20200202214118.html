@@ -1,0 +1,51 @@
+<mat-card>
+  <mat-card-title>
+    <h5 class="mt-0">Demande Assurance Immobilier</h5>
+  </mat-card-title>
+  <hr>
+  <div class="mb-2"></div>
+  <div fxLayout="row wrap">
+    <ng-container *ngFor="let electoral of assurancImmobiliers">
+      <div fxFlex.sm="33.33" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33"
+        class="m-gap p-gap">
+        <div class="p-list-main mb-2">
+          <div class="p-list">
+            <div class="top"><img style="height: 250px;
+              object-fit: cover;" [src]="electoral.image ? electoral.image : 'assets/images/Assurance1.jpeg'">
+            </div>
+            <div class="bottom">
+              <div class="left">
+                <div class="details">
+                  <h3>
+                    <a [routerLink]="['/assurance/show/'+electoral.idassurance]">
+                      
+                      <p>Prime   {{electoral.prime}}</p>
+                    </a>
+                  </h3>
+                 </h5>
+                 
+                </div>
+                <div class="buy">
+                  <a [routerLink]="['/assurance/show/'+electoral.idassurance]">
+                    <i class="material-icons">details</i>
+                    
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="inside">
+              <a [routerLink]="['/assurance/show/'+electoral.id]">
+                <div class="icon"><i class="material-icons">info_outline</i></div>
+              </a>
+              <div class="contents">
+                <p> Valeur du Immobilier :{{electoral.housevalue | slice : 0:80 }} Million </p>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+  </div>
+</mat-card>

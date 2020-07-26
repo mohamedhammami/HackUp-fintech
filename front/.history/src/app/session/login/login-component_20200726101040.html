@@ -1,0 +1,43 @@
+<div class="relative">
+    <div class="form-bg">
+        <div fxLayout="row" fxLayoutAlign="center start" class="pt-2">
+            <div fxLayout="column" fxFlex.xl="40" fxFlex.lg="40" fxFlex.md="50" fxFlex.sm="80" fxFlex.xs="90">
+                <mat-card class="login-session">
+                    <div>
+                        <img src="../../../assets/images/logo.png" class="center" alt="user">
+                        <form [formGroup]="UserForm" (ngSubmit)="onLogin()" #loginForm="ngForm">
+                            <div fxLayout="column" fxLayoutAlign="start stretch">
+                                <mat-form-field style="width: 100%">
+                                    <input matInput placeholder="E-Mail" type="email" formControlName="email">
+                                </mat-form-field>
+                                <small class="gene-block"
+                                    *ngIf="UserForm.controls['email'].hasError('required') && UserForm.controls['email'].touched"
+                                    class="mat-text-warn">You must include en email adress.
+                                </small>
+                                <small class="gene-block"
+                                    *ngIf="UserForm.controls['email'].errors && !(UserForm.controls['email'].hasError('required')) && UserForm.controls['email'].touched"
+                                    class="mat-text-warn">You must include a valid email address..
+                                </small>
+                                <mat-form-field style="width: 100%" class="mb-1">
+                                    <input matInput placeholder="Mot de passe" type="password"
+                                        formControlName="password">
+                                </mat-form-field>
+                                <small class="gene-block"
+                                    *ngIf="UserForm.controls['password'].hasError('required') && UserForm.controls['password'].touched"
+                                    class="mat-text-warn">Password Required
+
+                                </small>
+
+                                <button class="mat-green" mat-raised-button>login</button>
+
+                                <p class="mb-0">Don't have account yet ?<a [routerLink]="['/authentication/register']"
+                                        class="mat-text-primary">Create an account</a></p>
+                            </div>
+
+                        </form>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

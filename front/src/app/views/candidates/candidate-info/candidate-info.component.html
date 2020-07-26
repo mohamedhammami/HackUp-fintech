@@ -1,0 +1,257 @@
+<ng-container *ngIf="candidate;else noCandidate">
+
+  <div class="user-profile relative">
+    <div class="profile-cover">
+    </div>
+    <div class="">
+      <div fxLayout="row" fxLayoutWrap="wrap" class="profile-w">
+        <div fxFlex.gt-sm="25" fxFlex.gt-xs="25" fxFlex="20">
+        </div>
+        <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="80" class="user-links">
+          <ul class="profile-menu">
+            <li>
+              <a href="">Activities<span class="block text-lg-center">
+                  {{candidate.activities ? candidate.activities.length : 0}} </span>
+              </a>
+            </li>
+            <li>
+              <a href="">Score<span class="block text-lg-center">
+                  {{score}} </span>
+              </a>
+            </li>
+            <li>
+              <a href="">Rates<span class="block text-lg-center">
+                  {{candidate.nbRate}} </span>
+              </a>
+            </li>
+            <li>
+              <a href="">Rating<span class="block text-lg-center">
+                  {{candidate.rating}} </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div fxFlex.gt-sm="25" fxFlex.gt-xs="25" fxFlex="100" class="align-self-center">
+          <button *ngIf="isAdmin" type="button"
+            class="UserActions-editButton edit-button EdgeButton EdgeButton--tertiary"
+            data-scribe-element="profile_edit_button">
+            <span class="button-text" (click)="toggleEdit()">Edit Candidate</span>
+          </button>
+        </div>
+      </div>
+      <div fxLayout="row wrap">
+        <div fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100" class="relative">
+          <div class="profile-avatar">
+            <img [src]="candidate.image" class="profile-image">
+          </div>
+          <div class="profile-info" style="margin-top : 50px">
+            <ng-container *ngIf="!isEdit;else edit">
+              <h3 class="profile-name"><i class="fa fa-user"></i>
+                <strong> {{candidate.firstname | titlecase}} {{candidate.lastname | titlecase}}</strong>
+              </h3>
+              <span class="user-name"><i class="fa fa-envelope"></i>{{candidate.email}}</span>
+              <span class="pro-des"> <i class="fa fa-map-marker"></i>Tunis</span>
+              <span><i class="fa fa-birthday-cake"></i>{{candidate.dateOfBirth | date: 'd/M/y'}}</span>
+              <span><i class="fa fa-facebook"></i>{{candidate.facebook}}</span>
+              <span><i class="fa fa-twitter"></i>{{candidate.twitter}}</span>
+            </ng-container>
+            <ng-template #edit>
+              <div>
+                <i class="fa fa-user"></i>
+                <mat-form-field class="ml-1">
+                  <input matInput type="text" [(ngModel)]="candidateUpdate.firstname">
+                </mat-form-field>
+                <mat-form-field class="ml-2">
+                  <input matInput type="text" [(ngModel)]="candidateUpdate.lastname">
+                </mat-form-field>
+              </div>
+              <div>
+                <i class="fa fa-envelope mr-1"></i>
+                <mat-form-field>
+                  <input matInput type="text" [(ngModel)]="candidateUpdate.email">
+                </mat-form-field>
+              </div>
+              <div>
+                <span class="pro-des"> <i class="fa fa-map-marker  mr-1"></i>Tunis</span>
+              </div>
+              <div>
+                <i class="fa fa-birthday-cake  mr-1"></i>
+                <mat-form-field>
+                  <input matInput type="text" [(ngModel)]="candidateUpdate.dateOfBirth">
+                </mat-form-field>
+              </div>
+              <div>
+                <i class="fa fa-facebook mr-1"></i>
+                <mat-form-field>
+                  <input matInput type="text" [(ngModel)]="candidateUpdate.facebook">
+                </mat-form-field>
+              </div>
+              <div>
+                <i class="fa fa-twitter mr-1"></i>
+                <mat-form-field>
+                  <input matInput type="text" [(ngModel)]="candidateUpdate.twitter">
+                </mat-form-field>
+              </div>
+              <button (click)="updateUser()" mat-raised-button mat-button-sm color="primary"
+                class="mr-1 ml-3 mb-1">Update</button>
+              <div class="mb-2"></div>
+              <ng-container *ngFor="let activity of activities">
+                <div fxLayout="row mb-2">
+                  <div class="p-1 profile-i">
+                    <div>
+                      <span class="post-profile-head">
+                        <a [routerLink]="['/activities/show/'+activity.id]">
+                          {{activity.name}} <i style="color: #a7a7a7;">{{activity.type}}</i>
+                        </a>
+                        <button (click)="addActivity(activity.id)" style="height: 27px;" mat-raised-button mat-button-sm
+                          color="warn">Add</button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </ng-template>
+          </div>
+        </div>
+
+        <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="100" class="mt-1">
+          <div class="profile-content" *ngIf="!isAdmin">
+            <div class="profile-head">
+              <h4>Vote</h4>
+              <hr>
+            </div>
+            <div class="profile-cont">
+              <div class="pl-0">
+                <mat-slider #slide [value]="slide.value" [(ngModel)]="vote"></mat-slider>
+                {{vote}}
+                <button (click)="voteUser()" mat-raised-button mat-button-sm color="accent"
+                  class="mr-1 ml-3 mb-1">Vote</button>
+              </div>
+            </div>
+          </div>
+          <div class="mb-2"></div>
+          <div class="profile-content">
+            <div class="profile-head">
+              <h4>Electoral</h4>
+              <hr>
+            </div>
+            <div class="profile-cont">
+              <ul class="pl-0" *ngIf="candidate.electoral ; else noElectoral">
+                <li>
+                  <div fxLayout="row">
+                    <div fxFlex.xs="15" fxFlex.sm="15" fxFlex.md="15" fxFlex.lg="15" fxFlex.xl="15">
+                      <img class="profile-thumb activity-thumb" [src]="candidate.electoral.image" width="80" height="80"
+                        alt="user">
+                    </div>
+                    <div class="pl-1 pr-1 profile-i" fxFlex.xs="85" fxFlex.sm="85" fxFlex.md="85" fxFlex.lg="85"
+                      fxFlex.xl="85">
+                      <div>
+                        <span class="post-profile-head">
+                          <a [routerLink]="['/electorals/show/'+candidate.electoral.id]">
+                            {{candidate.electoral.name}}
+                          </a>
+                        </span>
+                        <span class="twitter-uname"><strong>{{"Tunis"}}</strong> </span>
+                        <p> {{candidate.electoral?.description | slice : 0:70}} ... </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ng-template #noElectoral>
+                <div class="p-3">
+                  No Electorals
+                </div>
+              </ng-template>
+              <ng-container *ngIf="isEdit">
+                <mat-form-field>
+                  <mat-select placeholder="Select Electoral" [(ngModel)]="currentElectoral" #drinkControl="ngModel">
+                    <mat-option *ngFor="let electoral of electorals" [value]="electoral">
+                      {{ electoral.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <ng-container *ngIf="currentElectoral">
+                  <div fxLayout="row">
+                    <div fxFlex.xs="15" fxFlex.sm="15" fxFlex.md="15" fxFlex.lg="15" fxFlex.xl="15">
+                      <img class="profile-thumb activity-thumb" [src]="currentElectoral.image" width="80" height="80"
+                        alt="user">
+                    </div>
+                    <div class="pl-1 pr-1 profile-i" fxFlex.xs="85" fxFlex.sm="85" fxFlex.md="85" fxFlex.lg="85"
+                      fxFlex.xl="85">
+                      <div>
+                        <span class="post-profile-head">
+                          <a [routerLink]="['/electorals/show/'+currentElectoral.id]">
+                            {{currentElectoral.name}}
+                          </a>
+                          <span class="twitter-uname"><strong>{{"Tunis"}}</strong> </span>
+                          <button (click)="assignElectoral()" mat-raised-button mat-button-sm color="accent"
+                            class="mr-1 ml-3 mb-1">Assign</button>
+                        </span>
+                        <p> {{currentElectoral.description | slice : 0:70}} ... </p>
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+              </ng-container>
+
+            </div>
+          </div>
+          <div class="mb-2"></div>
+          <div class="profile-content">
+            <div class="profile-head">
+              <h4>Activities</h4>
+              <hr>
+            </div>
+            <div class="profile-cont">
+              <ul class="pl-0">
+                <li *ngFor="let activity of candidate.activities">
+                  <div fxLayout="row">
+                    <div fxFlex.xs="15" fxFlex.sm="15" fxFlex.md="15" fxFlex.lg="15" fxFlex.xl="15">
+                      <img *ngIf="activity.medias && activity.medias[0]?.type.includes('image');else default"
+                        class="profile-thumb activity-thumb" [src]="activity.medias[0].url" width="80" height="80"
+                        alt="user">
+                      <ng-template #default>
+                        <img class="profile-thumb activity-thumb" [src]="'assets/images/default-image.jpg'" width="80"
+                          height="80" alt="user">
+                      </ng-template>
+                    </div>
+                    <div class="pl-1 pr-1 profile-i" fxFlex.xs="85" fxFlex.sm="85" fxFlex.md="85" fxFlex.lg="85"
+                      fxFlex.xl="85">
+                      <div>
+                        <span class="post-profile-head">
+                          <a [routerLink]="['/activities/show/'+activity.id]">
+                            {{activity.name}}
+                          </a>
+
+                        </span>
+                        <span class="twitter-uname"><strong>{{activity.type}}</strong> </span>
+                        <span class="time"> {{ activity.startDate | date : 'MMMM dd, yyyy' }} </span>
+                        <button *ngIf="isEdit" (click)="removeActivity(activity.id)" mat-raised-button mat-button-sm
+                          color="warn" class="mr-1 ml-3 mb-1">Remove</button>
+                        <p> {{activity?.description | slice : 0:70}} ... </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ng-container *ngIf="!candidate.activities.length">
+                <div class="p-3">
+                  No Activities
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+</ng-container>
+
+<ng-template #noCandidate>
+  No Candidate
+</ng-template>

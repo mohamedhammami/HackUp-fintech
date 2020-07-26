@@ -1,0 +1,32 @@
+
+<div fxLayout="row wrap" class="user-list-wrapper">
+  <div class="user-card-w" fxFlex.sm="33.33" fxFlex.md="33.33" fxFlex.lg="33.33" fxFlex.xl="33.33"
+       *ngFor="let electoral of demandes">
+      <div class="user-list-card">
+          <div class="user-card-cover" style="background-image:url(assets/images/night.jpg)">
+              <div>
+                  <div class="text-center user-thumb">
+                      <img class="img-responsive img-circle"
+                      {{electoral.user.firstname}}
+                           alt="user list image">
+                  </div>
+
+              </div>
+          </div>
+          <div class="user-content">
+              <div class="pad-wrap d-flex justify-content-between mb-1">
+                  <div>
+                      <h4 class="user-name text-primary">{{electoral.montant }}</h4>
+                      <span class="silk-block mb-1"> {{electoral.typeCredit }}</span>
+                  </div>
+              
+              </div>
+              <span class="d-flex mb-2">
+             <mat-icon>location_on</mat-icon>
+             {{electoral.raison | slice : 0:80 }}
+          </span>
+           
+          </div>
+      </div>
+  </div>
+</div>

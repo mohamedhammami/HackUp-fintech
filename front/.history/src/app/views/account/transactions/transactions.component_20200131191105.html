@@ -1,0 +1,89 @@
+
+<mat-card>
+  <mat-card-title>
+    <h5 class="mt-0">Effectuer le virement</h5>
+  </mat-card-title>
+  <mat-card-content style="min-height: 400px;">
+    <div fxLayout="row">
+      <div fxFlex.gt-md="50">
+        <mat-form-field style="width: 80%">
+          <form [formGroup]="contactForm">
+            <div class="container">
+  
+                <i class="fa fa-user-circle" aria-hidden="true"> Saisir votre RIB</i>
+                <br>
+                <input  placeholder="Saisir votre RIB" class="w3-input w3-border w3-round-large" class="col-lg-5"
+                    formControlName="RIB1" name="RIB1" required>
+                <div *ngIf="RIB1.invalid"></div>
+                <br />
+                <br />
+                <i class="fa fa-user-circle" aria-hidden="true"> Saisir le RIB du déstinataire </i>
+                <br>
+                <input placeholder="Saisir le RIB du déstinataire" class="w3-input w3-border w3-round-large"
+                    class="col-lg-5" formControlName="RIB2"  name="RIB2" required>
+                <div *ngIf="RIB2.invalid"></div>
+                <br />
+                <br />
+                <i class="fa fa-euro" aria-hidden="true"> Saisir le Montant à virer</i>
+                <br>
+                <input placeholder="Montant à virer" class="w3-input w3-border w3-round-large" class="col-lg-5"
+                    formControlName="montant" name="montant" required>
+                <div *ngIf="montant.invalid"></div>
+                <br />
+                <br />
+            </div>
+            <button class="btn btn-success" [disabled]="!contactForm.valid" (click)="transferer(RIB1.value,RIB2.value,montant.value)">Transférer</button>
+
+        </form>
+      </mat-form-field>
+    </div>
+   </div>
+    
+  </mat-card-content>
+
+
+
+
+
+  <div class="mb-2"></div>
+  <div class="profile-content">
+    <div class="profile-head">
+      <h4>Effectuer le virement</h4>
+      <hr>
+    </div>
+    <div class="profile-cont">
+      <ul class="pl-0">
+        <li >
+          <div fxLayout="row">
+            <div fxFlex.xs="15" fxFlex.sm="15" fxFlex.md="15" fxFlex.lg="15" fxFlex.xl="15">
+            </div>
+            <div class="pl-1 pr-1 profile-i" fxFlex.xs="85" fxFlex.sm="85" fxFlex.md="85" fxFlex.lg="85"
+              fxFlex.xl="85">
+              <div>
+                <span class="twitter-uname">
+                  <i class="fa fa-user-circle" aria-hidden="true"> Saisir votre RIB</i>
+                  <input  placeholder="Saisir votre RIB" class="w3-input w3-border w3-round-large" class="col-lg-5"
+                  formControlName="RIB1" name="RIB1" required>
+              <div *ngIf="RIB1.invalid"></div></span>
+                <span class="time"> 
+                  <i class="fa fa-user-circle" aria-hidden="true"> Saisir le RIB du déstinataire </i>
+                  <input placeholder="Saisir le RIB du déstinataire" class="w3-input w3-border w3-round-large"
+                  class="col-lg-5" formControlName="RIB2"  name="RIB2" required>
+              <div *ngIf="RIB2.invalid"></div>
+                </span>
+                <button *ngIf="isEdit" (click)="removeActivity(activity.id)" mat-raised-button mat-button-sm
+                  color="warn" class="mr-1 ml-3 mb-1">Remove</button>
+                <p> {{activity?.description | slice : 0:70}} ... </p>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ng-container *ngIf="!candidate.activities.length">
+        <div class="p-3">
+          No Activities
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

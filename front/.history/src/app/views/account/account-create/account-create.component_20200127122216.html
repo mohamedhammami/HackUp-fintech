@@ -1,0 +1,41 @@
+<mat-card>
+  <mat-card-title>
+    <h5 class="mt-0">Create Electoral</h5>
+  </mat-card-title>
+  <mat-card-content style="min-height: 400px;">
+    <div fxLayout="row">
+      <div fxFlex.gt-md="50">
+        <mat-form-field style="width: 80%">
+          <input [(ngModel)]="electoral.name" matInput placeholder="Name">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayout="row">
+      <div fxFlex.gt-md="50">
+        <mat-form-field style="width: 80%">
+          <input [(ngModel)]="electoral.description" matInput placeholder="Description">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayout="row">
+      <div fxFlex.gt-md="50">
+        <mat-form-field style="width: 80%">
+          <input [(ngModel)]="electoral.location" matInput placeholder="Location">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayout="row">
+      <div fxFlex.gt-md="50">
+        <input class="mat-button" id="image" type="file" required name="sndImage" (change)="onFileSelected($event)">
+      </div>
+    </div>
+
+    <div>
+      <button style="float:right;margin-right: 50px;" (click)="submitElectoral()"
+        class="mat-flat-button mat-primary">Add Electoral</button>
+    </div>
+  </mat-card-content>
+</mat-card>

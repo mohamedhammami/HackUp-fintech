@@ -1,0 +1,73 @@
+
+ <mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrer">
+</mat-form-field>
+
+  <mat-card>
+    <mat-card-title>
+      <h5 class="mt-0">List Account</h5>
+    </mat-card-title>
+    <hr>
+    <div class="col-md-6">
+      <table class="table table-striped table-responsive-md btn-table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>RIB</th>
+                      <th>montant</th>
+                      <th>typeCompte</th>
+                      <th>DateOuverture</th>
+                      <th>Nom Du Client</th>
+
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let account of accounts">
+                    <td>
+                      <button class="btn btn-success" >Supprimer</button>
+                    </td>
+                    <td data-title="RIB">{{account.rib}}</td>
+                    <td data-title="montant">{{account.montant}}</td>
+                    <td data-title="typeCompte">{{account.typeCompte}}</td>
+                    <td data-title="DateOuverture">{{account.dateouverture}}</td>
+                    <td data-title="Nom Du Client">{{account.user1.firstname}}</td>
+
+                  </tbody>
+                </table>
+          </div>
+          </mat-card>
+
+
+
+
+          <mat-table *ngFor="let account of accounts" class="mat-elevation-z8">
+            <!-- Position Column -->
+            <ng-container matColumnDef="RIB">
+              <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+              <mat-cell > {{account.rib}} </mat-cell>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="weight">
+              <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="symbol">
+              <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+            </ng-container>
+          
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+
+
+
+         

@@ -1,0 +1,81 @@
+      <mat-card class="p-2 main-detail-product" *ngIf="detaildemande">
+        <div class="product-detail" fxLayout="row wrap">
+          <div class="column m-gap p-gap product-img" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50"
+            fxFlex.xl="50">
+            <div class="img-thumbnail"><img class="left"
+                [src]=" 'assets/images/obligation.jpg'" /></div>
+          </div>
+          <div class="column m-gap p-gap product-info" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50"
+            fxFlex.xl="50">
+
+
+      <div class="">
+        <h1>Nom d'utilistaeur : {{detaildemande.user1.firstname}} </h1>
+        <br>
+        <div class="price">
+          <h4><span>Rib : {{detaildemande.rib}}</span></h4>
+          <br>
+          <h4><span>Montant : {{detaildemande.montant}}</span></h4>
+          <br>
+          <h4 class=""><span>Date:  {{detaildemande.dateouverture}}
+          </span></h4>
+
+        </div>
+        <div class="separator"></div>
+      </div>
+      <br>
+      <br>
+
+      
+    </div>
+    <br>
+
+  </div>
+  <h1>Liste Obligation</h1>
+      
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Prix Achat</th>
+        <th scope="col">Coupon</th>
+        <th scope="col">societeemetrice</th>
+        <th scope="col">date Debut</th>
+        <th scope="col">date Fin</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let compte of obligation">
+      <tr>
+      <th scope="row">{{compte.prixachat}}</th>
+        <td>{{compte.coupon}}</td>
+        <td>{{compte.societeemetrice}}</td>
+        <td>@{{compte.dateDebut}}</td>
+        <td>@{{compte.dateFin}}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  <br>
+  <h1>Liste Actions</h1>
+      
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Prix Achat</th>
+        <th scope="col">Date Achat</th>
+        <th scope="col">societeemetrice</th>
+        <th scope="col">Quantité</th>
+        <th scope="col">CompteTitre Rib : </th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let compte of action">
+      <tr>
+      <th scope="row">{{compte.prixachat}}</th>
+        <td>{{compte.dateAchat}}</td>
+        <td>{{compte.societeemetrice}}</td>
+        <td>{{compte.quantite}}</td>
+        <td>{{compte.comptetitre.rib}}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</mat-card>

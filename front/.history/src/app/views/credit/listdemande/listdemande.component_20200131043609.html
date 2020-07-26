@@ -1,0 +1,38 @@
+
+
+
+
+<mat-card class="p-2 main-detail-product">
+  <div class="product-detail" fxLayout="row wrap">
+    <div class="column m-gap p-gap product-img" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50"
+      fxFlex.xl="50">
+      
+    <div class="column m-gap p-gap product-info" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50"
+      fxFlex.xl="50">
+      <div class="" *ngFor="let electoral of demandes">
+        <h1> {{electoral.user.firstname}} </h1>
+        <div class="price">
+          <h4><span>Montant : {{electoral.montant }}</span></h4>
+          <h4><span>typeCredit : {{electoral.typeCredit }}</span></h4>
+        </div>
+        <div class="separator"></div>
+        <p>
+          {{electoral.raison}}
+        </p>
+      </div>
+      <ul class="share-with">
+        <li><i class="fa fa-eye fa-2x"></i></li>
+        <li><i class="fa fa-heart-o fa-2x"></i></li>
+        <li><i class="fa fa-envelope-o fa-2x"></i></li>
+        <li><i class="fa fa-share-alt fa-2x"></i></li>
+      </ul>
+    </div>
+  </div>
+  <mat-card>
+    <mat-card-title>
+      <h5 class="mt-0">Candidates</h5>
+    </mat-card-title>
+    <hr>
+    <div class="mb-2"></div>
+    
+  </mat-card>

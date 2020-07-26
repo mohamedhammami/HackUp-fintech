@@ -1,0 +1,27 @@
+
+
+
+
+
+
+
+
+
+  
+<div class="container">
+    <div class="card" *ngIf="generic">
+        <label for="fname">Nom Du produit</label>
+      <input type="text" placeholder="name" [(ngModel)]="product.name">
+
+    <form action="action_page.php">
+        <div *ngFor="let value of product.valueList">
+            <label for="lname">{{value.name}} </label>
+            <input *ngIf="value.type == 'string' " [(ngModel)]="value.value" type="text" placeholder="{{value.value}}">
+            <br>
+            <br>
+            <input *ngIf="value.type == 'int' " [(ngModel)]="value.value" type="number" placeholder="{{value.value}}">
+            </div>
+     <button (click)="onSubmit()" type="submit">Submit</button>  
+  
+    </form>
+  </div></div>

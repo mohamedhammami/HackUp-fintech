@@ -1,0 +1,29 @@
+<mat-card class="p-2 main-detail-product" *ngIf="assuranceimm">
+  <div class="product-detail" fxLayout="row wrap">
+    <div class="column m-gap p-gap product-img" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50"
+      fxFlex.xl="50">
+    
+    </div>
+    <div class="column m-gap p-gap product-info" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50"
+      fxFlex.xl="50">
+      <div class="">
+        <h1>Valeur du Prime  :{{assuranceimm.prime}} </h1>
+        <div class="price">
+          <h4><span>Nom du client : {{assuranceimm.user.firstname}}    {{assuranceimm.user.lastname }}</span></h4>
+          <h4><span>Adress : {{assuranceimm.adress}}</span></h4>
+        </div>
+        <div class="separator"></div>
+        <h2>
+            Valeur du immobilier   :{{assuranceimm.housevalue}}
+        </h2>
+      </div>
+      <ul class="share-with">
+        <li><i class="fa fa-eye fa-2x"></i></li>
+        <li><i class="fa fa-heart-o fa-2x"></i></li>
+        <li><i class="fa fa-envelope-o fa-2x"></i></li>
+        <li><i class="fa fa-share-alt fa-2x"></i></li>
+      </ul>
+    </div>
+  </div>
+ 
+</mat-card>
